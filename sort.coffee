@@ -88,8 +88,26 @@ insertionSort = (arr) ->
 	arr
 
 test = (func) ->
-	arr = [0,8,3,-6,7,-13]
-	console.log func arr
+	arr = [0, 8, 3, -6, 7, -13]
+
+	sorted = [-13, -6, 0, 3, 7, 8]
+	res = func arr
+
+	passed = true
+	if res.length isnt sorted.length
+		passed = false
+	else
+		i = 0
+		while i < res.length
+			if res[i] isnt sorted[i]
+				passed = false
+				break
+			i += 1
+
+	if passed
+		console.log "Success!"
+	else
+		console.log "Failure :("
 
 test quicksort
 test bubbleSort
